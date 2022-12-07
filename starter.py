@@ -9,7 +9,7 @@ windows.geometry('600x600')
 
 
 #Fuction
-def exit():
+def stop():
     exit()
 #end
 #Start
@@ -32,7 +32,7 @@ def main():
 btn = tk.Button(text="End")
 btn.config(bg="skyblue")
 btn.config(width=10,height=5)
-btn.config(command=exit)
+btn.config(command=stop)
 btn.pack()
 #end
 #Button
