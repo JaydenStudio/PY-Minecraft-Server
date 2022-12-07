@@ -1,2 +1,2 @@
 # PY-Minecraft-Server
-use python start Minecraft server
+Start a Minecraft server with python
