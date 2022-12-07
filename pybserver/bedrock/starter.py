@@ -13,7 +13,7 @@ def stop():
 #end
 #Start
 def start():
-    os.system(".\mc\server.exe")
+    os.system("cd mc && server.exe")
 #end
 #run
 def main():
