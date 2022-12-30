@@ -12,7 +12,7 @@ def start_java():
 #Function
 def start_bedrock():
     cmdline = "./"
-    os.system(f"start {cmdline}pybserver/bedrock/mc/server.exe")
+    os.system(f"cd {cmdline} && start {cmdline}pybserver/bedrock/mc/server.exe")
 #end
 #function
 def main():
