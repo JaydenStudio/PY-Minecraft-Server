@@ -19,7 +19,22 @@ def start():
         print("Server starts in 5 seconds")
         time.sleep(5)
         os.system("cd Minecraft && java -jar server.jar")
-        print("Server closed")
+        xx = os.path.isfile("./config.txt")
+        if xx == True:
+            with open("config.txt", "r", encoding="utf-8") as f:
+                y = f.read()
+                if y == "Autorestart = True" or y == "Autorestart=True" or y == "Autorestart= True" or y == "Autorestart =True":
+                    z = True
+                    main()
+                else:
+                    z = False
+                    print("Server closed")
+                    exit()
+        else:
+            with open("config.txt", "w", encoding="utf-8") as f:
+                f.write("Autorestart = True")
+                z = True
+                main()
     else:
         print("Error: server.jar not found")
 #end
