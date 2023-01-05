@@ -40,9 +40,11 @@ def start(): #Fuction start
                 Autorestart = config['config']['Autorestart']#read the config file
                 if Autorestart == True or Autorestart == "true":#if Autorestart is True
                     start()#restart the server
-                else:#if Autorestart is False
+                elif Autorestart == False or Autorestart == "false":#if Autorestart is False
                     print("Server closed")#print Server closed
                     exit()#exit
+                else:
+                    start()
         else:#if xx is False
             with open("./config.ini","w",encoding="utf-8") as f:#open the config file
                 f.write("[config]\n")#write the config file
