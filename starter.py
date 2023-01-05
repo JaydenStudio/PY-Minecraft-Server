@@ -3,7 +3,6 @@ from tkinter import messagebox #load messagebox from tkinter
 import os#load os
 import time#load time
 import threading#load threading
-import configparser #load configparser
 import webbrowser #load webbrowser
 windows = tk.Tk()#windows is tk.Tk()
 windows.title('Minecraft Server')#window title is Minecraft Server
@@ -20,36 +19,13 @@ def github():#Fuction github
     webbrowser.open("https://github.com/JaydenStudio/PY-Minecraft-Server")#open github
 #Start
 def start(): #Fuction start
-    config = configparser.ConfigParser()
-    config.read("config.ini")#read config.ini
     serverfile=os.path.exists("./Minecraft/server.jar")#True or False
     if serverfile==True: #if serverfile is True
         print("Server starts in 5 seconds")#print "Server starts in 5 seconds"
         time.sleep(5)#sleep 5 seconds
         os.system("cd Minecraft && java -jar server.jar")#Start server
-        xx = os.path.isfile("./config.ini")#True or False
-        if xx == True:#if xx is True
-            try:
-                Autorestart = config['config']['Autorestart']#read config
-            except KeyError:
-                with open("./config.ini","w",encoding="utf-8") as f:#write file
-                    f.write("[config]\n")
-                    f.write("Autorestart = True")
-                    start()
-            else:#if config is not empty
-                Autorestart = config['config']['Autorestart']#read the config file
-                if Autorestart == True or Autorestart == "true":#if Autorestart is True
-                    start()#restart the server
-                elif Autorestart == False or Autorestart == "false":#if Autorestart is False
-                    print("Server closed")#print Server closed
-                    exit()#exit
-                else:
-                    start()
-        else:#if xx is False
-            with open("./config.ini","w",encoding="utf-8") as f:#open the config file
-                f.write("[config]\n")#write the config file
-                f.write("Autorestart = True")#write the autorestart
-                start()#restart the server
+        print("restarting server")#print restart server
+        start()
     else:#if serverfile is False
         print("Error: server.jar not found")#print "Error: server.jar not found"
 #end
